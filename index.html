@@ -20,10 +20,10 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
 
     /* Top App Bar */
-
     .topbar {
       background-color: #000000;    /* pure black */
       color: #f9fafb;
@@ -56,7 +56,6 @@
       gap: 8px;
     }
 
-    /* V|A LOGO TEXT – merged into header */
     .brand-mark {
       font-size: 26px;
       font-weight: 800;
@@ -110,7 +109,6 @@
     }
 
     /* Main container */
-
     .container {
       max-width: 980px;
       margin: 18px auto 28px;
@@ -301,7 +299,6 @@
     }
 
     /* “Pages” */
-
     .screen {
       display: none;
       opacity: 0;
@@ -315,13 +312,34 @@
     }
 
     @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateX(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
+      from { opacity: 0; transform: translateX(8px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Ad box – bottom 300x250 area */
+    .ad-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 10px 0;
+      border-top: 1px solid #262626;
+      margin-top: 24px;
+    }
+
+    /* LEFT SIDEBAR AD (160x600) */
+    .sidebar-ad {
+      position: fixed;
+      left: 10px;
+      top: 120px;
+      width: 160px;
+      z-index: 9999;
+    }
+
+    /* Hide sidebar ad on small screens */
+    @media (max-width: 800px) {
+      .sidebar-ad {
+        display: none;
       }
     }
 
@@ -341,8 +359,23 @@
   </style>
 </head>
 <body>
+
+  <!-- LEFT SIDE STICKY AD (160x600) -->
+  <div class="sidebar-ad">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '414fc1cf55e079a2ad9456cbe4c87e6f',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/414fc1cf55e079a2ad9456cbe4c87e6f/invoke.js"></script>
+  </div>
+
   <div class="page-shell">
-    <!-- Top app bar with merged text logo and tabs -->
+    <!-- Top app bar -->
     <div class="topbar">
       <div class="topbar-inner">
         <div class="brand">
@@ -353,15 +386,9 @@
           <div class="brand-text-sub">SGPA &amp; CGPA Utilities</div>
         </div>
         <div class="nav-tabs">
-          <button class="nav-btn active" data-target="sgpaScreen">
-            <span>SGPA</span>
-          </button>
-          <button class="nav-btn" data-target="cgpaScreen">
-            <span>CGPA</span>
-          </button>
-          <button class="nav-btn" data-target="updateCgpaScreen">
-            <span>CGPA Update</span>
-          </button>
+          <button class="nav-btn active" data-target="sgpaScreen"><span>SGPA</span></button>
+          <button class="nav-btn" data-target="cgpaScreen"><span>CGPA</span></button>
+          <button class="nav-btn" data-target="updateCgpaScreen"><span>CGPA Update</span></button>
         </div>
       </div>
     </div>
@@ -402,9 +429,7 @@
               <th style="width:30%;">Credits</th>
             </tr>
           </thead>
-          <tbody id="courseTableBody">
-            <!-- JS will insert rows -->
-          </tbody>
+          <tbody id="courseTableBody"></tbody>
         </table>
 
         <button id="calcSgpaBtn" class="btn btn-primary" type="button">Calculate SGPA</button>
@@ -449,9 +474,7 @@
               <th style="width:30%;">Credits</th>
             </tr>
           </thead>
-          <tbody id="semesterTableBody">
-            <!-- JS will insert rows -->
-          </tbody>
+          <tbody id="semesterTableBody"></tbody>
         </table>
 
         <button id="calcCgpaBtn" class="btn btn-primary" type="button">Calculate CGPA</button>
@@ -508,6 +531,21 @@
           </div>
         </div>
       </div>
+
+      <!-- BOTTOM AD (300×250) -->
+      <div class="ad-box">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'a3aacb5f9f09ab9a37416d5b8c6da9ca',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/a3aacb5f9f09ab9a37416d5b8c6da9ca/invoke.js"></script>
+      </div>
+
     </div>
   </div>
 
